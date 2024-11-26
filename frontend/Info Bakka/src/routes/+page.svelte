@@ -56,6 +56,8 @@
 
 <Weather weather='lightsleetandthunder' temperature='17' day='Onsdag' date='25' month='Nov'/>
 
+<h1 class="header bold">Info-Bakka</h1>
+
 <a href="/calendar" class="calendar-link">
     <div class="calendar">
         <h3 class="regular">{dayName}</h3>
@@ -72,6 +74,11 @@
 </a>
 
 <style>
+    .header {
+        color: white;
+        font-size: 64px;
+        text-align: center;
+    }
     .calendar {
         width: 98%;
         height: 276px;
