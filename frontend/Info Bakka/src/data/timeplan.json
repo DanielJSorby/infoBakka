@@ -1,0 +1,242 @@
+{
+	"mandag": {
+		"imit2": {
+			"blokk1": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "08:15",
+				"sluttTid": "09:45"
+			},
+			"blokk2": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "10:00",
+				"sluttTid": "11:30"
+			},
+			"blokk3": {
+				"fag": "yff",
+				"farge": "#FFDF22",
+				"startTid": "12:15",
+				"sluttTid": "14:45"
+			}
+		},
+		"imstit2": {
+			"blokk1": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "08:15",
+				"sluttTid": "09:45"
+			},
+			"blokk2": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "10:00",
+				"sluttTid": "11:30"
+			},
+			"blokk3": {
+				"fag": "a-blokk",
+				"farge": "#00B8D4",
+				"startTid": "12:15",
+				"sluttTid": "13:45"
+			},
+			"blokk4": {
+				"fag": "norsk",
+				"farge": "#00B8D4",
+				"startTid": "14:00",
+				"sluttTid": "15:30"
+			}
+		}
+	},
+	"tirsdag": {
+		"imit2": {
+			"blokk1": {
+				"fag": "samfunsfag",
+				"farge": "#00B8D4",
+				"startTid": "08:15",
+				"sluttTid": "09:00"
+			},
+			"blokk2": {
+				"fag": "status",
+				"farge": "#81C784",
+				"startTid": "09:00",
+				"sluttTid": "09:45"
+			},
+			"blokk3": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "10:00",
+				"sluttTid": "11:30"
+			},
+			"blokk4": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "12:15",
+				"sluttTid": "15:30"
+			}
+		},
+		"imstit2": {
+			"blokk1": {
+				"fag": "matte",
+				"farge": "#00B8D4",
+				"startTid": "08:15",
+				"sluttTid": "09:45"
+			},
+			"blokk2": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "10:00",
+				"sluttTid": "11:30"
+			},
+			"blokk3": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "12:15",
+				"sluttTid": "15:30"
+			}
+		}
+	},
+	"onsdag": {
+		"imit2": {
+			"blokk1": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "08:15",
+				"sluttTid": "09:45"
+			},
+			"blokk2": {
+				"fag": "yff",
+				"farge": "#FFDF22",
+				"startTid": "10:00",
+				"sluttTid": "11:30"
+			},
+			"blokk3": {
+				"fag": "basis",
+				"farge": "rosa",
+				"startTid": "12:15",
+				"sluttTid": "13:00"
+			},
+			"blokk4": {
+				"fag": "yff",
+				"farge": "#FFDF22",
+				"startTid": "13:00",
+				"sluttTid": "14:45"
+			}
+		},
+		"imstit2": {
+			"blokk1": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "08:15",
+				"sluttTid": "09:45"
+			},
+			"blokk2": {
+				"fag": "engelsk",
+				"farge": "#00B8D4",
+				"startTid": "10:00",
+				"sluttTid": "11:30"
+			},
+			"blokk3": {
+				"fag": "basis",
+				"farge": "rosa",
+				"startTid": "12:15",
+				"sluttTid": "13:00"
+			},
+			"blokk4": {
+				"fag": "a-blokk",
+				"farge": "#00B8D4",
+				"startTid": "13:00",
+				"sluttTid": "15:30"
+			}
+		}
+	},
+	"torsdag": {
+		"imit2": {
+			"blokk1": {
+				"fag": "norsk",
+				"farge": "#00B8D4",
+				"startTid": "08:15",
+				"sluttTid": "09:45"
+			},
+			"blokk2": {
+				"fag": "yff",
+				"farge": "#FFDF22",
+				"startTid": "10:00",
+				"sluttTid": "11:30"
+			},
+			"blokk3": {
+				"fag": "samfunsfag",
+				"farge": "#00B8D4",
+				"startTid": "12:15",
+				"sluttTid": "13:45"
+			}
+		},
+		"imstit2": {
+			"blokk1": {
+				"fag": "status",
+				"farge": "#81C784",
+				"startTid": "09:00",
+				"sluttTid": "09:45"
+			},
+			"blokk2": {
+				"fag": "gym",
+				"farge": "#00B8D4",
+				"startTid": "10:00",
+				"sluttTid": "11:30"
+			},
+			"blokk3": {
+				"fag": "norsk",
+				"farge": "#00B8D4",
+				"startTid": "12:15",
+				"sluttTid": "13:45"
+			},
+			"blokk4": {
+				"fag": "engelsk",
+				"farge": "#00B8D4",
+				"startTid": "14:00",
+				"sluttTid": "15:30"
+			}
+		}
+	},
+	"fredag": {
+		"imit2": {
+			"blokk1": {
+				"fag": "norsk",
+				"farge": "#00B8D4",
+				"startTid": "08:15",
+				"sluttTid": "09:45"
+			},
+			"blokk2": {
+				"fag": "gym",
+				"farge": "#00B8D4",
+				"startTid": "10:00",
+				"sluttTid": "11:30"
+			},
+			"blokk3": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "12:15",
+				"sluttTid": "15:30"
+			}
+		},
+		"imstit2": {
+			"blokk1": {
+				"fag": "matte",
+				"farge": "#00B8D4",
+				"startTid": "08:15",
+				"sluttTid": "10:45"
+			},
+			"blokk2": {
+				"fag": "engelsk",
+				"farge": "#00B8D4",
+				"startTid": "10:45",
+				"sluttTid": "11:30"
+			},
+			"blokk3": {
+				"fag": "it",
+				"farge": "#81C784",
+				"startTid": "12:15",
+				"sluttTid": "15:30"
+			}
+		}
+	}
+}

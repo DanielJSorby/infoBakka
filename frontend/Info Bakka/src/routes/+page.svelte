@@ -1,21 +1,77 @@
-<script>
-    import CalendarBox from '../components/calendar/box.svelte'
-    import Weather from '../components/weather/weather.svelte'
+<script lang="ts">
+    import Navbar from '../components/navbar.svelte';
+    import CalendarBox from '../components/calendar/box.svelte';
+    import Weather from '../components/weather/weather.svelte';
+    import timeplan from '../data/timeplan.json';
+
+    let time = new Date();
+    let day = time.getDay();
+
+    // Funksjon for å få navnet på dagen
+    function getDayName(day: number) {
+        const days = ['søndag', 'mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lørdag'];
+        return days[day];
+    }
+
+    let dayName = getDayName(day);
+
+    // Funksjon for å konvertere tid fra HH:MM til minutter siden midnatt
+    function timeToMinutes(time: string) {
+        const [hours, minutes] = time.split(':').map(Number);
+        return hours * 60 + minutes;
+    }
+
+    // Funksjon for å sjekke de nåværende og neste blokkene basert på nåværende tid
+    function getCurrentAndNextBlocks(dayName: string) {
+        const now = new Date();
+        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+        const blocks = timeplan[dayName]?.imstit2;
+
+        if (!blocks) return [];
+
+        let currentBlock = null;
+        let nextBlocks = [];
+
+        for (const block in blocks) {
+            const startMinutes = timeToMinutes(blocks[block].startTid);
+            const endMinutes = timeToMinutes(blocks[block].sluttTid);
+            if (currentMinutes >= startMinutes && currentMinutes <= endMinutes) {
+                currentBlock = blocks[block];
+            } else if (currentMinutes < startMinutes) {
+                nextBlocks.push(blocks[block]);
+            }
+        }
+
+        if (currentBlock) {
+            nextBlocks.unshift(currentBlock);
+        }
+
+        return nextBlocks.slice(0, 2);
+    }
+
+    let currentAndNextBlocks = getCurrentAndNextBlocks(dayName);
 </script>
 
-<Weather weather='overskyet' temperature='17' day='Onsdag' date='25' month='Nov'/>
+<Navbar />
+
+<Weather weather='lightsleetandthunder' temperature='17' day='Onsdag' date='25' month='Nov'/>
 
 <div class="calendar">
-    <h3 class="regular">Onsdag</h3>
+    <h3 class="regular">{dayName}</h3>
     <div class="line">Hei</div>
-    <CalendarBox fag='Norsk' time='08:15-09:45'/>
-    <div class="line">Hei</div>
-    <CalendarBox fag='Matte' time='10:00-11:30' color='#81C784'/>
+    {#if currentAndNextBlocks.length > 0}
+        {#each currentAndNextBlocks as block}
+            <CalendarBox fag={block.fag} time={`${block.startTid}-${block.sluttTid}`} color={block.farge}/>
+            <div class="line">Hei</div>
+        {/each}
+    {:else}
+        <div>Ingen blokk akkurat nå</div>
+    {/if}
 </div>
 
 <style>
     .calendar {
-        width: 404px;
+        width: 98%;
         height: 276px;
         overflow: hidden;
         background-color: #fff;
@@ -25,6 +81,7 @@
         align-items: center;
         gap: 10px;
         border-radius: 32px;
+        margin: 0 auto;
     }
 
     .calendar h3 {
