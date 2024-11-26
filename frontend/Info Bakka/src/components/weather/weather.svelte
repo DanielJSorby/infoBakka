@@ -19,7 +19,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 260px;
+        height: 360px;
         width: 100%;
         background-size: contain;
         background-position: center;
