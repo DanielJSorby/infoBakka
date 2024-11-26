@@ -2,6 +2,7 @@
     import Navbar from '../components/navbar.svelte';
     import CalendarBox from '../components/calendar/box.svelte';
     import Weather from '../components/weather/weather.svelte';
+    import Rute from '../components/ruter/rute.svelte';
     import timeplan from '../data/timeplan.json';
 
     let time = new Date();
@@ -54,7 +55,7 @@
 
 <Navbar />
 
-<Weather weather='lightsleetandthunder' temperature='17' day='Onsdag' date='25' month='Nov'/>
+<Weather weather='rain' temperature='17' day='Onsdag' date='25' month='Nov'/>
 
 <h1 class="header bold">Info-Bakka</h1>
 
@@ -72,6 +73,15 @@
         {/if}
     </div>
 </a>
+
+<Rute type='buss' navn='Kjelsås Stasjon' planlagtTid=3 faktiskTid=5 linje=54/>
+<Rute type='trikk' navn='Sinsen via Grefsen' planlagtTid=7 faktiskTid=7 linje=18/>
+
+<p>© InfoBakka</p>
+<p>© InfoBakka</p>
+<p>© InfoBakka</p>
+<p>© InfoBakka</p>
+<p>© InfoBakka</p>
 
 <style>
     .header {
