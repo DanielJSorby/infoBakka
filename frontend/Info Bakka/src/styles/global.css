@@ -1,5 +1,37 @@
+@import url("https://use.typekit.net/dmz5lkq.css");
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-style: normal;
+	font-family: "ivystyle-sans", sans-serif;
+}
+
+body {
+	background-color: #6cb6c1;
+}
+
+.thin {
+	font-weight: 200;
+}
+
+.light {
+	font-weight: 300;
+}
+
+.regular {
+	font-weight: 400;
+}
+
+.semi-bold {
+	font-weight: 600;
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.italic {
+	font-style: italic;
 }
