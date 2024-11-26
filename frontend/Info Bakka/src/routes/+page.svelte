@@ -2,7 +2,7 @@
     import Navbar from '../components/navbar.svelte';
     import CalendarBox from '../components/calendar/box.svelte';
     import Weather from '../components/weather/weather.svelte';
-    import Rute from '../components/ruter/rute.svelte';
+    import Ruter from '../components/ruter/ruter.svelte';
     import timeplanData from '../data/timeplan.json';
 
     interface Block {
@@ -103,14 +103,12 @@
     </div>
 </a>
 
-<Rute type='buss' navn='Kjelsås Stasjon' planlagtTid=3 faktiskTid=5 linje=54/>
-<Rute type='trikk' navn='Sinsen via Grefsen' planlagtTid=7 faktiskTid=7 linje=18/>
+<Ruter amount=6/>
 
-<p>© InfoBakka</p>
-<p>© InfoBakka</p>
-<p>© InfoBakka</p>
-<p>© InfoBakka</p>
-<p>© InfoBakka</p>
+<p>&copy; InfoBakka</p>
+<p>&copy; InfoBakka</p>
+<p>&copy; InfoBakka</p>
+<p>&copy; InfoBakka</p>
 
 <style>
     .header {
