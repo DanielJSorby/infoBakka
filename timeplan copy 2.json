@@ -1,0 +1,107 @@
+{
+    "mandag": {
+        "2imit": {
+            "time1": "it",
+            "time2": "it",
+            "time3": "it",
+            "time4": "it",
+            "time5": "yff",
+            "time6": "yff",
+            "time7": "yff"
+        },
+        "2imstit": {
+            "time1": "it",
+            "time2": "it",
+            "time3": "it",
+            "time4": "it",
+            "time5": "a-blokk",
+            "time6": "a-blokk",
+            "time7": "norsk",
+            "time8": "norsk"
+        }
+    },
+    "tirsdag": {
+        "2imit": {
+            "time1": "samfunsfag",
+            "time2": "status",
+            "time3": "it",
+            "time4": "it",
+            "time5": "it",
+            "time6": "it",
+            "time7": "it",
+            "time8": "it"
+        },
+        "2imstit": {
+            "time1": "matte",
+            "time2": "matte",
+            "time3": "it",
+            "time4": "it",
+            "time5": "it",
+            "time6": "it",
+            "time7": "it",
+            "time8": "it"
+        }
+    },
+    "onsdag": {
+        "2imit": {
+            "time1": "it",
+            "time2": "it",
+            "time3": "yff",
+            "time4": "yff",
+            "time5": "basis",
+            "time6": "yff",
+            "time7": "yff"
+        },
+        "2imstit": {
+            "time1": "it",
+            "time2": "it",
+            "time3": "engelsk",
+            "time4": "engelsk",
+            "time5": "basis",
+            "time6": "a-blokk",
+            "time7": "a-blokk",
+            "time8": "a-blokk"
+        }
+    },
+    "torsdag": {
+        "2imit": {
+            "time1": "norsk",
+            "time2": "norsk",
+            "time3": "yff",
+            "time4": "yff",
+            "time5": "samfunsfag",
+            "time6": "samfunsfag"
+        },
+        "2imstit": {
+            "time2": "status",
+            "time3": "gym",
+            "time4": "gym",
+            "time5": "norsk",
+            "time6": "norsk",
+            "time7": "engelsk",
+            "time8": "engelsk"
+        }
+    },
+    "fredag":{
+        "2imit": {
+            "time1": "norsk",
+            "time2": "norsk",
+            "time3": "gym",
+            "time4": "gym",
+            "time5": "it",
+            "time6": "it",
+            "time7": "it",
+            "time8": "it"
+        },
+        "2imstit": {
+            "time1": "matte",
+            "time2": "matte",
+            "time3": "matte",
+            "time4": "engelsk",
+            "time5": "it",
+            "time6": "it",
+            "time7": "it",
+            "time8": "it"
+        }
+    }
+}
