@@ -56,18 +56,20 @@
 
 <Weather weather='lightsleetandthunder' temperature='17' day='Onsdag' date='25' month='Nov'/>
 
-<div class="calendar">
-    <h3 class="regular">{dayName}</h3>
-    <div class="line">Hei</div>
-    {#if currentAndNextBlocks.length > 0}
-        {#each currentAndNextBlocks as block}
-            <CalendarBox fag={block.fag} time={`${block.startTid}-${block.sluttTid}`} color={block.farge}/>
-            <div class="line">Hei</div>
-        {/each}
-    {:else}
-        <div>Ingen blokk akkurat nå</div>
-    {/if}
-</div>
+<a href="/calendar" class="calendar-link">
+    <div class="calendar">
+        <h3 class="regular">{dayName}</h3>
+        <div class="line">Hei</div>
+        {#if currentAndNextBlocks.length > 0}
+            {#each currentAndNextBlocks as block}
+                <CalendarBox fag={block.fag} time={`${block.startTid}-${block.sluttTid}`} color={block.farge}/>
+                <div class="line">Hei</div>
+            {/each}
+        {:else}
+            <div>Ingen blokk akkurat nå</div>
+        {/if}
+    </div>
+</a>
 
 <style>
     .calendar {
@@ -93,5 +95,9 @@
 
     .calendar .line {
         width: 354px;
+    }
+
+    .calendar-link {
+        text-decoration: none; /* Fjerner blå understrek */
     }
 </style>
