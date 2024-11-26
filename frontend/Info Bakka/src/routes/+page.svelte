@@ -40,9 +40,9 @@
     function getCurrentAndNextBlocks(dayName: string) {
         const now = new Date();
         const currentMinutes = now.getHours() * 60 + now.getMinutes();
-        const blocks = timeplan[dayName]?.imstit2;
+        let blocks = timeplan[dayName]?.imstit2;
 
-        if (!blocks) return [];
+        if (!blocks) return { blocks: [], dayName };
 
         let currentBlock = null;
         let nextBlocks = [];
@@ -61,10 +61,25 @@
             nextBlocks.unshift(currentBlock);
         }
 
-        return nextBlocks.slice(0, 2);
+        if (nextBlocks.length === 0) {
+            // Hvis det ikke er flere blokker for dagen, sjekk neste dag
+            let nextDay = (day + 1) % 7;
+            let nextDayName = getDayName(nextDay);
+            blocks = timeplan[nextDayName]?.imstit2;
+
+            if (blocks) {
+                for (const block in blocks) {
+                    nextBlocks.push(blocks[block]);
+                }
+            }
+
+            return { blocks: nextBlocks.slice(0, 2), dayName: nextDayName };
+        }
+
+        return { blocks: nextBlocks.slice(0, 2), dayName };
     }
 
-    let currentAndNextBlocks = getCurrentAndNextBlocks(dayName);
+    let { blocks: currentAndNextBlocks, dayName: displayDayName } = getCurrentAndNextBlocks(dayName);
 </script>
 
 <Navbar />
@@ -75,11 +90,11 @@
 
 <a href="/calendar" class="calendar-link">
     <div class="calendar">
-        <h3 class="regular">{dayName}</h3>
+        <h3 class="regular">{displayDayName[0].toUpperCase() + displayDayName.slice(1)}</h3>
         <div class="line">Hei</div>
         {#if currentAndNextBlocks.length > 0}
             {#each currentAndNextBlocks as block}
-                <CalendarBox fag={block.fag} time={`${block.startTid}-${block.sluttTid}`} color={block.farge}/>
+                <CalendarBox fag={block.fag[0].toUpperCase() + block.fag.slice(1)} time={`${block.startTid}-${block.sluttTid}`} color={block.farge}/>
                 <div class="line">Hei</div>
             {/each}
         {:else}
