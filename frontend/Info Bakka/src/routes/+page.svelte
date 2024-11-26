@@ -103,7 +103,7 @@
     </div>
 </a>
 
-<Ruter amount=6/>
+<Ruter amount={6}/>
 
 <p>&copy; InfoBakka</p>
 <p>&copy; InfoBakka</p>
