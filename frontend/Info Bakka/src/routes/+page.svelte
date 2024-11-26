@@ -3,7 +3,21 @@
     import CalendarBox from '../components/calendar/box.svelte';
     import Weather from '../components/weather/weather.svelte';
     import Rute from '../components/ruter/rute.svelte';
-    import timeplan from '../data/timeplan.json';
+    import timeplanData from '../data/timeplan.json';
+
+    interface Block {
+        fag: string;
+        farge: string;
+        startTid: string;
+        sluttTid: string;
+    }
+
+    interface DayPlan {
+        imit2?: Record<string, Block>;
+        imstit2?: Record<string, Block>;
+    }
+
+    const timeplan: Record<string, DayPlan> = timeplanData;
 
     let time = new Date();
     let day = time.getDay();
