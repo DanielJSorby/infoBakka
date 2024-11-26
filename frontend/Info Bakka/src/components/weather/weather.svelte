@@ -7,27 +7,12 @@
 
 </script>
 
-<div class="body {weather}">
+<div class="body {weather}" style="background-image: url(https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/{weather}.svg);">
     <h2 class="semi-bold temperature">{temperature}</h2>
     <p class="thin date">{day} {date}. {month}</p>
 </div>
 
 <style>
-    .overskyet {
-        background-image: url(/src/images/weather/overskyet.svg);
-    }
-
-    .skyet {
-        background-image: url(/src/images/weather/skyet.svg);
-    }
-
-    .sol {
-        background-image: url(/src/images/weather/sol.svg);
-    }
-
-    .regn {
-        background-image: url(/src/images/weather/regn.svg);
-    }
 
     .body {
         display: flex;
@@ -40,6 +25,7 @@
         background-position: center;
         background-repeat: no-repeat;
         color: #707070;
+        text-shadow: 2px 2px 2px rgba(255,255,255,0.4);
     }
 
     .temperature {
