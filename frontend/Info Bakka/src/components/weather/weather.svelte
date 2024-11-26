@@ -8,7 +8,7 @@
 </script>
 
 <div class="body {weather}" style="background-image: url(https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/{weather}.svg);">
-    <h2 class="semi-bold temperature">{temperature}</h2>
+    <h2 class="semi-bold temperature">{temperature}°C</h2>
     <p class="thin date">{day} {date}. {month}</p>
 </div>
 
