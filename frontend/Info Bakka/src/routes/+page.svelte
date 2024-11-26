@@ -7,7 +7,7 @@
 
 <Navbar />
 
-<Weather weather='rain' temperature='17' day='Onsdag' date='25' month='Nov'/>
+<Weather weather='rain'/>
 
 <h1 class="header bold">Info-Bakka</h1>
 

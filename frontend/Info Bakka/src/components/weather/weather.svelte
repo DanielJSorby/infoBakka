@@ -1,9 +1,13 @@
 <script>
     export let weather = 'overskyet';
     export let temperature = '17';
-    export let day = 'Onsdag'
-    export let date = '25'
-    export let month = 'Nov'
+
+    const d = new Date();
+    const dayList = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
+    const day = dayList[d.getDay()];
+    const date = d.getDate();
+    const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'];
+    const month = monthList[d.getMonth()];
 
 </script>
 
@@ -30,7 +34,6 @@
 
     .temperature {
         font-size: 64px;
-        padding-right: 100px;
     }
 
     .date {
