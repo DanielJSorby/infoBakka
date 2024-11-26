@@ -35,3 +35,9 @@ body {
 .italic {
 	font-style: italic;
 }
+
+.line {
+	height: 1px;
+	background-color: #e0e0e0;
+	color: transparent;
+}
