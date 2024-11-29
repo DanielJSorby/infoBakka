@@ -5,6 +5,10 @@
     import Calendar from '../components/calendar/calendar.svelte';
 </script>
 
+<svelte:head>
+    <title>Hjem | Info-Bakka</title>
+</svelte:head>
+
 <Navbar />
 
 <Weather weather='fog'/>
