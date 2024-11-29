@@ -135,6 +135,7 @@
         width: 98%;
         background-color: #252424;
         margin: 0 auto;
+        margin-top: 24px;
         border-radius: 26px;
         padding: 16px;
         gap: 4px;
