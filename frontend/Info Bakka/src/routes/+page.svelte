@@ -11,7 +11,7 @@
 
 <Navbar />
 
-<Weather weather='fog'/>
+<Weather/>
 
 <h1 class="header bold">Info-Bakka</h1>
 

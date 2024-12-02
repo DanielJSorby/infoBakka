@@ -67,12 +67,13 @@ async def fetch_entur_data():
                 ENTUR_API_URL, headers=ENTUR_HEADERS, json=payload
             )
             if response.status_code == 200:
+                print("Entur API Response:", response.text)
                 return response.text
+            print(f"Error response: {response.status_code}, {response.text}")
             return f"Error fetching Entur data: {response.status_code}, {response.text}"
-    except httpx.TimeoutException as exc:
-        return f"Timeout occurred: {exc}"
-    except httpx.RequestError as exc:
-        return f"Request error: {exc}"
+    except Exception as e:
+        print(f"Exception in fetch_entur_data: {e}")
+        return f"Error: {str(e)}"
 
 
 async def fetch_yr_data():
@@ -91,40 +92,68 @@ async def fetch_yr_data():
 
 
 def extract_daily_forecast(data):
-    daily_forecasts = []
-    seen_dates = set()
+    try:
+        timeseries = data.get("properties", {}).get("timeseries", [])
+        if not timeseries:
+            return json.dumps({"error": "No weather data available"})
 
-    for entry in data.get("properties", {}).get("timeseries", []):
-        time_str = entry.get("time")
-        if not time_str:
-            continue
+        current_weather = {}
+        hourly_forecast = []
 
-        timestamp = datetime.datetime.fromisoformat(time_str)
-        date = timestamp.date()
+        # Get current weather
+        current = timeseries[0]
+        current_details = current.get("data", {}).get("instant", {}).get("details", {})
+        current_symbol = (
+            current.get("data", {})
+            .get("next_1_hours", {})
+            .get("summary", {})
+            .get("symbol_code", "")
+        )
 
-        if date not in seen_dates:
-            seen_dates.add(date)
+        current_weather = {
+            "temperature": round(current_details.get("air_temperature", 0)),
+            "wind_speed": round(current_details.get("wind_speed", 0)),
+            "symbol": current_symbol,
+            "precipitation": current.get("data", {})
+                .get("next_1_hours", {})
+                .get("details", {})
+                .get("precipitation_amount", 0)
+        }
+
+        # Get next 24 hours forecast
+        for entry in timeseries[:24]:  # Next 24 hours
+            time = entry.get("time")
             details = entry.get("data", {}).get("instant", {}).get("details", {})
-            symbol_code = (
+            symbol = (
                 entry.get("data", {})
                 .get("next_1_hours", {})
                 .get("summary", {})
-                .get("symbol_code", None)
+                .get("symbol_code", "")
+            )
+            precipitation = (
+                entry.get("data", {})
+                .get("next_1_hours", {})
+                .get("details", {})
+                .get("precipitation_amount", 0)
             )
 
-            daily_forecasts.append(
-                {
-                    "date": date.isoformat(),
-                    "time": time_str,
-                    "details": details,
-                    "symbol_code": symbol_code,
-                }
-            )
+            hour = datetime.datetime.fromisoformat(time).strftime("%H")
+            
+            forecast_entry = {
+                "hour": hour,
+                "temperature": round(details.get("air_temperature", 0)),
+                "symbol": symbol,
+                "precipitation": precipitation
+            }
+            hourly_forecast.append(forecast_entry)
 
-        if len(daily_forecasts) >= 7:
-            break
-
-    return json.dumps(daily_forecasts, indent=2)
+        return json.dumps({
+            "current": current_weather,
+            "hourly": hourly_forecast
+        }, indent=2)
+    except Exception as e:
+        print(f"Error processing weather data: {e}")
+        return json.dumps({"error": f"Error processing weather data: {str(e)}"})
 
 
 async def generate_entur_data():

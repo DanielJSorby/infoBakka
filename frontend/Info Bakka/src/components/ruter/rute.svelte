@@ -1,9 +1,9 @@
-<script>
-    export let type;
-    export let navn;
-    export let planlagtTid;
-    export let faktiskTid;
-    export let linje;
+<script lang="ts">
+    export let type: string;
+    export let navn: string;
+    export let planlagtTid: string;
+    export let faktiskTid: string;
+    export let linje: number;
 </script>
 
 <div class="rute">
@@ -31,10 +31,10 @@
     </div>
     <div class="tid">
         {#if planlagtTid === faktiskTid}
-            <p>{faktiskTid} min</p>
+            <p>{faktiskTid}{faktiskTid !== 'Nå' ? ' min' : ''}</p>
         {:else}
-            <p class="forsinket">{planlagtTid} min</p>
-            <p>{faktiskTid} min</p>
+            <p class="forsinket">{planlagtTid}{planlagtTid !== 'nå' ? ' min' : ''}</p>
+            <p>{faktiskTid}{faktiskTid !== 'Nå' ? ' min' : ''}</p>
         {/if}
     </div>
 </div>

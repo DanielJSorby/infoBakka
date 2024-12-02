@@ -1,6 +1,9 @@
-<script>
-    export let weather = 'overskyet';
-    export let temperature = '17';
+<script lang="ts">
+    import { onMount } from 'svelte';
+
+    let weather = 'clearsky_day';
+    let temperature = '0';
+    let weatherData: any = null;
 
     const d = new Date();
     const dayList = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
@@ -9,6 +12,42 @@
     const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'];
     const month = monthList[d.getMonth()];
 
+    async function fetchWeatherData() {
+        try {
+            const response = await fetch('http://localhost:8000/weather');
+            const reader = response.body?.getReader();
+            if (!reader) return;
+
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+
+                const text = new TextDecoder().decode(value);
+                const chunks = text.split('\n\n');
+                
+                for (const chunk of chunks) {
+                    if (chunk.trim()) {
+                        try {
+                            const data = JSON.parse(chunk);
+                            if (data && data[0]) {  // Check if we have data
+                                weatherData = data[0];  // Get first forecast (current)
+                                weather = weatherData.symbol_code || 'clearsky_day';
+                                temperature = Math.round(weatherData.details.air_temperature).toString();
+                            }
+                        } catch (parseError) {
+                            console.error('Error parsing weather data:', parseError);
+                        }
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Error fetching weather data:', error);
+        }
+    }
+
+    onMount(() => {
+        fetchWeatherData();
+    });
 </script>
 
 <div class="body {weather}" style="background-image: url(https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/{weather}.svg);">
@@ -17,7 +56,6 @@
 </div>
 
 <style>
-
     .body {
         display: flex;
         flex-direction: column;
