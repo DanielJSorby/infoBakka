@@ -31,10 +31,10 @@
     </div>
     <div class="tid">
         {#if planlagtTid === faktiskTid}
-            <p>{faktiskTid}{faktiskTid !== 'Nå' ? ' min' : ''}</p>
+            <p>{faktiskTid}{faktiskTid !== 'nå' ? ' min' : ''}</p>
         {:else}
             <p class="forsinket">{planlagtTid}{planlagtTid !== 'nå' ? ' min' : ''}</p>
-            <p>{faktiskTid}{faktiskTid !== 'Nå' ? ' min' : ''}</p>
+            <p>{faktiskTid}{faktiskTid !== 'nå' ? ' min' : ''}</p>
         {/if}
     </div>
 </div>
